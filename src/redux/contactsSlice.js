@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchContacts } from './operation';
 
 const contactsInitialState = {
   items: [],
@@ -11,21 +12,21 @@ const contactsSlice = createSlice({
   name: 'contacts',
   // Початковий стан редюсера слайсу
   initialState: contactsInitialState,
-  // Об'єкт редюсерів
-  reducers: {
-    fetchingInProgress(state) {
+  // Додаємо обробку зовнішніх екшенів
+  extraReducers: {
+    [fetchContacts.pending](state) {
       state.isLoading = true;
     },
 
-    fetchingSuccess(state, action) {
+    [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.action = action.payload;
+      state.items = action.playload;
     },
 
-    fetchingError(state, action) {
+    [fetchContacts.rejected](state, action) {
       state.isLoading = false;
-      state.error = action.payload;
+      state.error = action.playload;
     },
 
     // addContact(state, action) {
