@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { Form, FormLabel, FormInput, FormButton } from "./ContactForm.styled";
-import { useDispatch } from "react-redux";
-import { addContact } from "redux/contactsSlice";
-import { nanoid } from "nanoid";
+import { useState } from 'react';
+import { Form, FormLabel, FormInput, FormButton } from './ContactForm.styled';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/operation';
+import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
 
-  const handleChange = (evt) => {
+  const handleChange = evt => {
     const { name, value } = evt.target;
 
     switch (name) {
-      case "name":
+      case 'name':
         setName(value);
         break;
-      case "number":
+      case 'number':
         setNumber(value);
         break;
       default:
@@ -25,7 +25,7 @@ export const ContactForm = () => {
     }
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = evt => {
     evt.preventDefault();
     const contact = {
       id: nanoid(6),
@@ -33,8 +33,8 @@ export const ContactForm = () => {
       number,
     };
     dispatch(addContact(contact));
-    setName("");
-    setNumber("");
+    setName('');
+    setNumber('');
   };
 
   return (
