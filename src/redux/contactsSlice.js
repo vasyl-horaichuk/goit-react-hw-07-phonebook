@@ -29,13 +29,13 @@ const contactsSlice = createSlice({
       state.error = action.playload;
     },
 
-    addContact(state, action) {
-      state.push(action.payload);
-    },
-    deleteContact(state, action) {
-      const index = state.findIndex(contact => contact.id === action.payload);
-      state.splice(index, 1);
-    },
+    // addContact(state, action) {
+    //   state.push(action.payload);
+    // },
+    // deleteContact(state, action) {
+    //   const index = state.findIndex(contact => contact.id === action.payload);
+    //   state.splice(index, 1);
+    // },
   },
 });
 
