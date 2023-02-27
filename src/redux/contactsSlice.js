@@ -39,7 +39,6 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { fetchingInProgress, fetchingSuccess, fetchingError } =
-  contactsSlice.actions;
+// export const { addContact, deleteContact} = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;
