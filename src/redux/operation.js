@@ -12,9 +12,10 @@ export const fetchContacts = () => async dispatch => {
     // Індикатор завантаження
     dispatch(fetchingInProgress());
     // HTTP-запит
-    const response = await axios.get('/contacts');
+    const response = await axios.get('contacts');
     // Обробка даних
     dispatch(fetchingSuccess(response.data));
+    console.log(response.data);
     // Обробка помилки
   } catch (e) {
     dispatch(fetchingError(e.message));
