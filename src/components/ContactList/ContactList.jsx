@@ -6,6 +6,7 @@ import { deleteContact } from 'redux/operation';
 
 export const ContactList = () => {
   const contacts = useSelector(getFilteredContacts);
+  console.log(contacts);
   const dispatch = useDispatch();
   return (
     <UserContactList>
