@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setNumber] = useState('');
 
   const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ export const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'number':
+      case 'phone':
         setNumber(value);
         break;
       default:
@@ -30,7 +30,7 @@ export const ContactForm = () => {
     const contact = {
       id: nanoid(6),
       name,
-      number,
+      phone,
     };
     dispatch(addContact(contact));
     setName('');
@@ -54,10 +54,10 @@ export const ContactForm = () => {
       <FormLabel>
         <FormInput
           type="tel"
-          name="number"
+          name="phone"
           onChange={handleChange}
-          value={number}
-          placeholder="Number"
+          value={phone}
+          placeholder="Phone number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
