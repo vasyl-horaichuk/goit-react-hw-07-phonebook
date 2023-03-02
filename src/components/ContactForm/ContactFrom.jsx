@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ export const ContactForm = () => {
         setName(value);
         break;
       case 'phone':
-        setNumber(value);
+        setPhone(value);
         break;
       default:
         break;
@@ -34,7 +34,7 @@ export const ContactForm = () => {
     };
     dispatch(addContact(contact));
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
